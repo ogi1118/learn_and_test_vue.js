@@ -3,20 +3,18 @@
   <div id="app">
     <AppSidebar />
     <div class="main-content">
-      <HelloWorld msg="Welcome to Your Vue.js App"/>
+      <router-view />
     </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 import AppSidebar from './components/AppSidebar.vue'
 
 export default {
   name: 'App',
   components: {
-    AppSidebar,
-    HelloWorld
+    AppSidebar
   }
 }
 </script>

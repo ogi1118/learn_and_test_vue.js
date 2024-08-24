@@ -3,10 +3,10 @@
   <div class="appsidebar">
     <button class="mypage-button">マイページ</button>
     <ul>
-      <li><a href="#">ホーム</a></li>
-      <li><a href="#">アバウト</a></li>
-      <li><a href="#">サービス</a></li>
-      <li><a href="#">お問い合わせ</a></li>
+      <li><router-link to="/">ホーム</router-link></li>
+      <li><router-link to="/about">アバウト</router-link></li>
+      <li><router-link to="/services">サービス</router-link></li>
+      <li><router-link to="/contact">お問い合わせ</router-link></li>
       <li v-for="(item, index) in userContent" :key="index">
         <a href="#">{{ item }}</a>
       </li>
