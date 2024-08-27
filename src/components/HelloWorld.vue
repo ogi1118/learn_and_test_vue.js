@@ -1,4 +1,4 @@
-<!-- HelloWorld.vue-->
+<!-- src/components/HelloWorld.vue-->
 <template>
   <div class="hello">
     <img alt="Vue logo" src="../assets/logo.png">

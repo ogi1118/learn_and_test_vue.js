@@ -1,4 +1,4 @@
-<!-- components/AppSidebar.vue -->
+<!-- src/components/AppSidebar.vue -->
 <template>
   <div class="appsidebar">
     <button class="mypage-button">マイページ</button>
@@ -7,13 +7,13 @@
       <li><router-link to="/about">アバウト</router-link></li>
       <li><router-link to="/services">サービス</router-link></li>
       <li><router-link to="/contact">お問い合わせ</router-link></li>
-      <li v-for="(item, index) in userContent" :key="index">
-        <a href="#">{{ item }}</a>
+      <li v-for="content in userContent" :key="content">
+        <router-link :to="{ name: 'NewItem', params: { pageTitle: content } }">{{ content }}</router-link>
       </li>
     </ul>
     <div class="add-content">
-      <input type="text" v-model="newContent" placeholder="新しい項目を追加" @keyup.enter="addContent" />
-      <button @click="addContent">追加</button>
+      <input v-model="newContent" placeholder="新しい項目名を入力" />
+    <button @click="addContent">登録</button>
     </div>
     <button class="setting-button">設定</button>
   </div>
@@ -21,11 +21,10 @@
 
 <script>
 export default {
-  name: "AppSidebar",
   data() {
     return {
       newContent: "",
-      userContent: []
+      userContent: JSON.parse(localStorage.getItem('userContent')) || [], // ローカルストレージから読み込み
     };
   },
   methods: {
@@ -33,11 +32,14 @@ export default {
       if (this.newContent.trim() !== "") {
         this.userContent.push(this.newContent.trim());
         this.newContent = ""; // 入力フィールドをクリア
+        localStorage.setItem('userContent', JSON.stringify(this.userContent)); // ローカルストレージに保存
       }
     }
   }
 };
 </script>
+
+
 
 <style scoped>
 .appsidebar {

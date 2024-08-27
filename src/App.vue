@@ -1,4 +1,4 @@
-<!-- App.vue -->
+<!-- C:\Users\81705\src\vue-test-app\src\App.vue -->
 <template>
   <div id="app">
     <AppSidebar />
